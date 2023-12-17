@@ -1,0 +1,17 @@
+services:
+  nextjs-service:
+    ports:
+      - 3100:3000
+    build:
+      context: ./
+      dockerfile: Dockerfile
+
+  mysql:
+    image: mysql:latest
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root@mysql
+      - MYSQL_USER=lms
+      - MYSQL_PASSWORD=lms@root
+      - MYSQL_DATABASE=lms
