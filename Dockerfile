@@ -22,7 +22,8 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 # This will do the trick, use the corresponding env file for each environment.
-COPY .env .env.production
+# COPY .env.local .env.production
+
 RUN npm run prisma:generate
 RUN npm run build
 
@@ -51,6 +52,6 @@ USER nextjs
 EXPOSE 3000
 
 ENV PORT 3000
-ENV HOSTNAME 127.0.0.1
+ENV HOSTNAME 0.0.0.0
 
 CMD ["node", "server.js"]

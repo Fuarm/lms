@@ -5,6 +5,7 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
+    image: nextjs-service
 
   mysql:
     image: mysql:latest
